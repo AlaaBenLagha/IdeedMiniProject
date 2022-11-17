@@ -14,9 +14,29 @@
         android:theme="@style/Theme.IdeedApp"
         tools:targetApi="31">
         <activity
-            android:name=".TaskView"
-            android:exported="true" >
+            android:name=".CreateTask"
+            android:exported="false" />
+        <activity
+            android:name=".CreateTasksTagsLists"
+            android:exported="true">
 
+        </activity>
+        <activity
+            android:name=".TaskView"
+            android:exported="true">
+
+
+        </activity>
+        <activity
+            android:name=".EditProfile"
+            android:exported="true" />
+        <activity
+            android:name=".SignUp"
+            android:exported="true" />
+        <activity
+            android:name=".SignIn"
+            android:exported="true"
+            android:parentActivityName=".SignUp" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,20 +44,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditProfile"
-            android:exported="true" />
-        <activity
-            android:name=".SignUp"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".SignIn"
-            android:exported="true"
-            android:parentActivityName=".SignUp"></activity>
-        <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

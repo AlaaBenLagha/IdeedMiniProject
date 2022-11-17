@@ -1,7 +1,6 @@
 package com.example.ideedapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.ideedapp.DAO.AdapterListener;
 import com.example.ideedapp.DAO.UserDAO;
 import com.example.ideedapp.DataBase.AppDataBase;
 import com.example.ideedapp.entities.User;

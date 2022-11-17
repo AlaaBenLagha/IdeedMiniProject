@@ -65,7 +65,7 @@ public class SignIn extends AppCompatActivity {
                                 });
                             }else{
                                 String email = user.getEmail().toString();
-                                startActivity(new Intent(SignIn.this, MainActivity.class)
+                                startActivity(new Intent(SignIn.this, TaskView.class)
                                         .putExtra("email",email));
 
                             }

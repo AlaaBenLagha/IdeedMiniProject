@@ -1,25 +1,32 @@
 package com.example.ideedapp;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.ideedapp.Adapter.AdapterListener;
 import com.example.ideedapp.Adapter.TagsAdapter;
+import com.example.ideedapp.Adapter.TaskAdapter;
+import com.example.ideedapp.DAO.TagsDAO;
+import com.example.ideedapp.DAO.TaskDAO;
+import com.example.ideedapp.DataBase.TagsDataBase;
 import com.example.ideedapp.entities.Tags;
 import com.example.ideedapp.entities.Tasks;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateTaksTagsLists extends AppCompatActivity implements AdapterListener {
+public class CreateTasksTagsLists extends AppCompatActivity implements AdapterListener{
 
 
     // var
     List<Tags> tags = new ArrayList<>();
-
+    private TagsDataBase tagsDataBase;
+    private TagsDAO tagsDAO;
     private TagsAdapter tagsAdapter;
     private RecyclerView tagRecycler;
 
@@ -28,8 +35,6 @@ public class CreateTaksTagsLists extends AppCompatActivity implements AdapterLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_taks_tags_lists);
-
-
 
         //init
 
@@ -44,21 +49,31 @@ public class CreateTaksTagsLists extends AppCompatActivity implements AdapterLis
         tags.add(new Tags(9,"Read"));
         tags.add(new Tags(10,"Watch"));
 
-
+        tagsDataBase = TagsDataBase.getInstance(this);
+        tagsDAO=tagsDataBase.getDao();
         //binding
         tagRecycler = findViewById(R.id.tagRecycler);
 
 
 
-        ////recyclerViw Config
 
-        tagsAdapter = new TagsAdapter()
+
+
+        ////recyclerViw Config
+        tagRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
+        tagRecycler.setAdapter(new TagsAdapter(this,tags,this));
+
 
 
     }
 
+
     @Override
-    public void OnClickTag(int id, int pos) {
+    public void OnClickTag(Tags tags) {
+        Intent intent = new Intent(this,CreateTask.class);
+        intent.putExtra("modelTags",tags);
+        startActivity(intent);
+
 
     }
 }

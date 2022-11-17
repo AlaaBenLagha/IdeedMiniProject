@@ -7,6 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.ideedapp.DAO.UserDAO;
+import com.example.ideedapp.entities.Tasks;
 import com.example.ideedapp.entities.User;
 
 

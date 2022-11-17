@@ -1,6 +1,8 @@
 package com.example.ideedapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -59,6 +61,8 @@ public class EditProfile extends AppCompatActivity {
                     if (emailet.getText().toString().isEmpty() || passwordet.getText().toString().isEmpty()) {
                         Toast.makeText(getApplicationContext(),"Please Complete Your Informations", Toast.LENGTH_LONG).show();
                     }else {
+                        Intent intent = new Intent(EditProfile.this,TaskView.class);
+
 
                         AppDataBase instance = AppDataBase.getInstance(getApplicationContext());
                         UserDAO userdao = instance.userDAO();
@@ -76,6 +80,7 @@ public class EditProfile extends AppCompatActivity {
 
 
                         Toast.makeText(getApplicationContext(),"Profile Complete with Sucess", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
 
                     }
            /*     String username = usernameet.getText().toString();

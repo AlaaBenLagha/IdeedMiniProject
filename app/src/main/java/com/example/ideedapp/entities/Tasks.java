@@ -1,16 +1,39 @@
-package com.example.ideedapp;
+package com.example.ideedapp.entities;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
+
+@Entity(tableName = "tasks_table")
 public class Tasks {
 
 
     //var
+
+    @PrimaryKey(autoGenerate = true)
     private int id;
+
+    @ColumnInfo(name = "taskname")
     private String taskName;
-    private int Image;
-   /* private String note;
-    private Date tastDate;
+
+
+
+    @ColumnInfo(name = "note")
+    private String note;
+
+    @ColumnInfo(name = "creation_date")
+    private String creationDate;
+
+    @ColumnInfo(name = "task_date")
+    private String setDate;
+
+
+     /*  @ColumnInfo(name = "image")
+    private int Image; */
+  /*
     private Date creationDate;
     private int picture;
     private int gallerieImg; */
@@ -20,15 +43,14 @@ public class Tasks {
 
     //constructor
 
-    public Tasks(int id) {
-        this.id = id;
-    }
-
-    public Tasks(int id, String taskName, int image) {
+    public Tasks(int id, String taskName, String note, String creationDate, String setDate) {
         this.id = id;
         this.taskName = taskName;
-        Image = image;
+        this.note = note;
+        this.creationDate = creationDate;
+        this.setDate = setDate;
     }
+
 
     //getters & setters
 
@@ -48,14 +70,29 @@ public class Tasks {
         this.taskName = taskName;
     }
 
-    public int getImage() {
-        return Image;
+    public String getCreationDate() {
+        return creationDate;
     }
 
-    public void setImage(int image) {
-        Image = image;
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getSetDate() {
+        return setDate;
+    }
+
+    public void setSetDate(String setDate) {
+        this.setDate = setDate;
+    }
 
     //ToString
 
@@ -65,7 +102,9 @@ public class Tasks {
         return "Tasks{" +
                 "id=" + id +
                 ", taskName='" + taskName + '\'' +
-                ", Image=" + Image +
+                ", note='" + note + '\'' +
+                ", creationDate='" + creationDate + '\'' +
+                ", setDate='" + setDate + '\'' +
                 '}';
     }
 }
